@@ -5,11 +5,7 @@ const DepartementSchema = mongoose.Schema({
     required: true,
   },
 
-  photoURL: {
-    type: String,
-  },
-
-  code: {
+  departementImage: {
     type: String,
     required: true,
   },

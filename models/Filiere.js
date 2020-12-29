@@ -8,5 +8,10 @@ const FiliereSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  departement: {
+    type: mongoose.Types.ObjectId,
+    ref: "departement",
+    required: true,
+  },
 });
 module.exports = mongoose.model("filiere", FiliereSchema);

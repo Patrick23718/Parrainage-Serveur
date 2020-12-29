@@ -83,9 +83,11 @@ router.post("/login", async (req, res) => {
   });
 });
 
+//! UPDATE USER
 router.put("/edit/:id", verifyToken, async (user, req, res, next) => {
   const id = req.params.id;
-  if (id !== user)
+
+  if (id !== user._id)
     return res.status(400).json({
       message: "Vous n'avez pas le droit de modifier un autre utilisateur",
     });

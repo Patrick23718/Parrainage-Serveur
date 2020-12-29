@@ -12,7 +12,11 @@ module.exports = async function (req, res, next) {
 
       next();
     } else {
-      return res.status(401).send("Access denied update permission");
+      return res
+        .status(401)
+        .send(
+          "Vous n'avez pas le niveau d'acreditation neccessaire pour obtenir cette ressource. Veuillez contacter l'administrateur"
+        );
     }
   } catch (error) {
     res.status(400).send("Invalid Token");

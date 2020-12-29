@@ -6,6 +6,8 @@ const mongoose = require("mongoose");
 // Import Routes
 const authRoute = require("./routes/auth/auth");
 const postsRoute = require("./routes/posts");
+const departementsRoute = require("./routes/departement");
+const filieresRoute = require("./routes/filiere");
 
 // Dotenv config
 dotenv.config();
@@ -18,6 +20,7 @@ mongoose.connect(
 );
 
 // Middleware
+app.use("/uploads", express.static("uploads"));
 app.use(express.json());
 
 app.use((req, res, next) => {
@@ -35,6 +38,8 @@ app.use((req, res, next) => {
 
 app.use("/api/user/", authRoute);
 app.use("/api/posts", postsRoute);
+app.use("/api/departements", departementsRoute);
+app.use("/api/filieres", filieresRoute);
 
 // // listening port
 const PORT = process.env.PORT || 3000;
